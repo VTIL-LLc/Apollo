@@ -1,7 +1,7 @@
 {
-	"name": "website-template",
-	"version": "1.313.88764",
-	"description": "A website template based on MFDLABS/QRefSysWeb.fx",
+	"name": "apollo",
+	"version": "1.0.0",
+	"description": "",
 	"main": "Bin/Main.js",
 	"scripts": {
 		"Start-Main-Job": "node --no-deprecation Bin/Main.js",
@@ -11,7 +11,7 @@
 		"build": "tsc -b --verbose",
 		"start": "node --trace-deprecation Bin/Main.js"
 	},
-	"author": "MFDLABS",
+	"author": "VTIL-LLc",
 	"license": "Apache-2.0",
 	"devDependencies": {
 		"@types/body-parser": "^1.19.0",
