@@ -2,9 +2,8 @@ import { Express as IExpressApplication } from 'express-serve-static-core';
 import { Router, json as JsonParser } from 'express';
 import { urlencoded as FormParser } from 'body-parser';
 import { Server as BaseLineServer } from 'http';
-import Ssl, { Server as BaseLineSslServer } from 'https';
-import SslV2 from 'spdy';
-import { readFileSync, existsSync as FileOrDirectoryExists } from 'fs';
+import { Server as BaseLineSslServer } from 'https';
+import { existsSync as FileOrDirectoryExists } from 'fs';
 import { __baseDirName, __sslDirName } from 'Assemblies/Directories';
 import { IConfigurationOptions } from 'Assemblies/Setup/Interfaces/IConfigurationOptions';
 import { Walkers } from 'Assemblies/Setup/Walkers';
@@ -59,32 +58,20 @@ export class SystemSDK {
             options.InsecurePort = options.InsecurePort || 80;
             let baselineSslServer: BaseLineSslServer;
             let baseLineServer: BaseLineServer;
-            if (options.UseSsl) {
-                const certPath = options.UseSslDirectoryName
-                    ? `${__sslDirName}/${options.CertificateFileName}`
-                    : options.CertificateFileName;
+            //if (options.UseSsl) {
+            //    const certPath = options.UseSslDirectoryName
+            //        ? `${__sslDirName}/${options.CertificateFileName}`
+            //        : options.CertificateFileName;
 
-                const keyPath = options.UseSslDirectoryName
-                    ? `${__sslDirName}/${options.CertificateKeyFileName}`
-                    : options.CertificateKeyFileName;
+            //    const keyPath = options.UseSslDirectoryName
+            //        ? `${__sslDirName}/${options.CertificateKeyFileName}`
+            //        : options.CertificateKeyFileName;
 
-                const rootCaPath = options.UseSslDirectoryName
-                    ? `${__sslDirName}/${options.RootCertificateFileName}`
-                    : options.RootCertificateFileName;
-                baselineSslServer = (options.UseSslV2 ? SslV2 : Ssl)
-                    .createServer(
-                        {
-                            cert: readFileSync(certPath, 'ascii'),
-                            key: readFileSync(keyPath, 'ascii'),
-                            ca: [readFileSync(rootCaPath, 'ascii')],
-                            passphrase: options.CertificateKeyPassword,
-                        },
-                        options.Application,
-                    )
-                    .listen(options.SslPort, options.SiteName, () =>
-                        Logger.Info(`BaseLineSslServer '%s' started on port %d.`, options.SiteName, options.SslPort),
-                    );
-            }
+            //    const rootCaPath = options.UseSslDirectoryName
+            //        ? `${__sslDirName}/${options.RootCertificateFileName}`
+            //        : options.RootCertificateFileName;
+            //    baselineSslServer = options.Application.
+            //}
             if (options.UseInsecure)
                 baseLineServer = options.Application.listen(options.InsecurePort, options.SiteName, () =>
                     Logger.Info(`BaseLineServer '%s' started on port %d.`, options.SiteName, options.InsecurePort),
