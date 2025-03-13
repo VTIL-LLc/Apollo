@@ -9,7 +9,7 @@ import fs from 'fs'
 // _P-paramName.ts => {siteName}/:paramName (For URI parameters)
 
 // ApiKey
-const apiKey = process.env.apiKey
+const apiKey = process.env.uploadApiKey
 
 class UploadSource implements IRoutingController {
     public RequestMethod = 'ALL';
