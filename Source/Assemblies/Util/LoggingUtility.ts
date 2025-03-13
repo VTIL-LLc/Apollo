@@ -7,7 +7,7 @@ import {
 } from 'fs';
 import { NetUtil } from './NetworkingUtility';
 import { GlobalEnvironment } from './GlobalEnvironment';
-import { __baseDirName } from 'Assemblies/Directories';
+// import { __baseDirName } from 'Assemblies/Directories';
 
 export class Logger {
     private static ConstructLoggerMessage(type: string, message: string, ...args: any[]) {
@@ -16,7 +16,7 @@ export class Logger {
                 process.arch
             }][${
                 process.version
-            }][${NetUtil.GetLocalIP()}][${NetUtil.GetMachineID()}][${__baseDirName}][server][${type.toUpperCase()}] ${message}\n`,
+            }][${NetUtil.GetLocalIP()}][${NetUtil.GetMachineID()}][${process.env.appName || "Undefined"}][server][${type.toUpperCase()}] ${message}\n`,
             ...args,
         );
     }
@@ -24,9 +24,9 @@ export class Logger {
     private static GetDirNameByOS() {
         switch (process.platform) {
             case 'win32':
-                return `${process.env.LOCALAPPDATA}\\MFDLABS\\Web\\Logs`;
-            case 'linux' || 'darwin':
-                return `/opt/mfdlabs/log`;
+                return `${process.env.LOCALAPPDATA}\\VTIL\\Web\\Logs`;
+            case 'linux' || 'darwin': // What the fuck...
+                return `/opt/vtil/log`;
         }
     }
 
@@ -100,6 +100,6 @@ export class Logger {
             .uptime()
             .toFixed(7)}\x1b[0m][\x1b[90m${process.pid.toString(16)}\x1b[0m][\x1b[90m${process.platform}-${process.arch}\x1b[0m][\x1b[90m${
             process.version
-        }\x1b[0m][\x1b[90m${NetUtil.GetLocalIP()}\x1b[0m][\x1b[90m${NetUtil.GetMachineID()}\x1b[0m][\x1b[90m${__baseDirName}\x1b[0m][server]`;
+        }\x1b[0m][\x1b[90m${NetUtil.GetLocalIP()}\x1b[0m][\x1b[90m${NetUtil.GetMachineID()}\x1b[0m][\x1b[90m${process.env.appName || "Undefined"}\x1b[0m][server]`;
     }
 }

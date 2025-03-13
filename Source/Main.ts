@@ -7,7 +7,12 @@ import { StandardInHandler } from './StandardInHandler';
 import { SystemSDK } from 'Assemblies/Setup/Lib/SystemSDK';
 import { __baseDirName } from 'Assemblies/Directories';
 
+import { DotENV } from 'Assemblies/Util/DotENV';
+
 (async () => {
+    // Configure the environment for current server!
+    DotENV.GlobalConfigure()
+
     const ExampleApplication = Application();
 
     // Add your middleware here that you want to execute before the routes (like static serve, pre-header, etc)
@@ -23,6 +28,8 @@ import { __baseDirName } from 'Assemblies/Directories';
             'apollo.vtilserver.com' // The name of the site, this is actually only consumed by the logger for debugging possible issues
         )
     );
+
+    console.log(process.env.isDebug); // Yeah just testing if it works.
 
     // Add your middleware here that you want to execute after the routes (like error handling, not found handling, etc)
 

@@ -10,7 +10,7 @@ export class NetUtil {
 	}
 
 	public static GetLocalIP() {
-		if (process.env.MFDLABS_LOCAL_IP !== undefined) return process.env.MFDLABS_LOCAL_IP;
+		if (process.env.VTIL_LOCAL_IP !== undefined) return process.env.VTIL_LOCAL_IP;
 
 		var netInterfaces = GetNetworkInterfaces();
 		for (var devName in netInterfaces) {
@@ -25,6 +25,6 @@ export class NetUtil {
 	}
 
 	public static GetMachineID() {
-		return process.env.MFDLABS_MACHINE_ID || GetMachineHost();
+		return process.env.VTIL_MACHINE_ID || GetMachineHost();
 	}
 }
