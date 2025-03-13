@@ -25,8 +25,8 @@ export class Logger {
         switch (process.platform) {
             case 'win32':
                 return `${process.env.LOCALAPPDATA}\\VTIL\\Web\\Logs`;
-            case 'linux' || 'darwin': // What the fuck...
-                return `/opt/vtil/log`;
+            // case 'linux' || 'darwin': // What the fuck...
+            //     return `/opt/vtil/log`;
         }
     }
 

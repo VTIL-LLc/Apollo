@@ -29,8 +29,6 @@ import { DotENV } from 'Assemblies/Util/DotENV';
         )
     );
 
-    console.log(process.env.isDebug); // Yeah just testing if it works.
-
     // Add your middleware here that you want to execute after the routes (like error handling, not found handling, etc)
 
     SystemSDK.StartServer({

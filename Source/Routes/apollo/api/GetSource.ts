@@ -20,11 +20,7 @@ class GetSource implements IRoutingController {
             return response.send(fs.readFileSync(__baseDirName + `/ROBLOX/${fileName}.lua`))
         }
 
-        return response.send({
-            data: [
-                "Nil"
-            ]
-        });
+        return response.sendStatus(404);
     }
 }
 

@@ -15,7 +15,6 @@ const DotENV_1 = require("Assemblies/Util/DotENV");
     const ExampleApplication = (0, express_1.default)();
     ExampleApplication.use(Logger_1.LoggingHandler);
     SystemSDK_1.SystemSDK.ConfigureServer(SystemSDK_1.SystemSDK.MetadataBuilder(ExampleApplication, 'apollo', 'apollo.vtilserver.com'));
-    console.log(process.env.isDebug);
     SystemSDK_1.SystemSDK.StartServer({
         Application: ExampleApplication,
         SiteName: 'localhost',

@@ -14,11 +14,7 @@ class GetSource {
             var fileName = _request.body.fileName || "default";
             return response.send(fs_1.default.readFileSync(Directories_1.__baseDirName + `/ROBLOX/${fileName}.lua`));
         }
-        return response.send({
-            data: [
-                "Nil"
-            ]
-        });
+        return response.sendStatus(404);
     }
 }
 module.exports = new GetSource();

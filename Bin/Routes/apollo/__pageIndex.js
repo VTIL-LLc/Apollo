@@ -1,12 +1,10 @@
 "use strict";
-class ExampleRoute {
+class Index {
     constructor() {
         this.RequestMethod = 'ALL';
     }
     Callback(_request, response, _resumeFunction) {
-        return response.send({
-            data: []
-        });
+        return response.sendStatus(200);
     }
 }
-module.exports = new ExampleRoute();
+module.exports = new Index();

@@ -13,8 +13,6 @@ class Logger {
         switch (process.platform) {
             case 'win32':
                 return `${process.env.LOCALAPPDATA}\\VTIL\\Web\\Logs`;
-            case 'linux' || 'darwin':
-                return `/opt/vtil/log`;
         }
     }
     static LogLocally(type, message, ...args) {
