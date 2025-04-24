@@ -1,5 +1,4 @@
 # Based off of the MFDLabs Website-Template
-## This repro is Confidential, Do not leak anything in this repro.
 
 # To first setup, please run following:
 
