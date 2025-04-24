@@ -9,7 +9,7 @@ export const LoggingHandler = ((request, _response, resumeFunction) => {
 		request.headers['host'] || request.hostname,
 		request.url,
 		request.headers['user-agent'] || 'No User Agent',
-		request.ip,
+		"PRIVATE",
 	);
 
 	resumeFunction();
