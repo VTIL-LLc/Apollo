@@ -19,7 +19,7 @@
 		"@types/node": "^18.19.80",
 		"@types/spdy": "^3.4.4",
 		"prettier": "^2.5.1",
-		"typescript": "^4.2.3"
+		"typescript": "^5.8.3"
 	},
 	"dependencies": {
 		"body-parser": "^1.19.0",
