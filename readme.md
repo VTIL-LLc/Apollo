@@ -1,5 +1,9 @@
 # Based off of the MFDLabs Website-Template
 
+## NOTICE
+THIS REPRO WILL NOT GET FREQUENT **MAJOR** UPDATES.
+
+
 # Roblox code
 https://github.com/VTIL-LLc/Apollo-Lua
 
