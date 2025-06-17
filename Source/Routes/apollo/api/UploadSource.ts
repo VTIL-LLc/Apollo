@@ -11,12 +11,17 @@ import fs from 'fs'
 // ApiKey
 const apiKey = process.env.uploadApiKey
 
+
 class UploadSource implements IRoutingController {
     public RequestMethod = 'ALL';
     public Callback(_request: Request, response: Response, _resumeFunction: NextFunction) {
         if (_request.body.apiKey == apiKey) {
             var fileName = _request.body.fileName || "default"
-            var fileData = _request.body.source || "print('Hello, world!')"
+            var fileData = _request.body.source || `--- This is the default file that'll be loaded if no filename is given,
+--- Check 'Source/Routes/apollo/api/GetSource.ts'-
+--- And 'Source/Routes/apollo/api/UploadSource.ts'!
+
+print('Hello, world!')`
 
             try {
                 fs.writeFileSync(__baseDirName + `/ROBLOX/${fileName}.lua`, fileData)
